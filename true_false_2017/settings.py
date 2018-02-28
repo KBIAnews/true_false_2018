@@ -135,3 +135,6 @@ BUILD_DIR = os.path.join(PROJECT_ROOT, 'build')
 BAKERY_VIEWS= ('films.views.FilmListView',
                'films.views.FilmDetailView',
                'films.views.VenueDetailView',)
+AWS_BUCKET_NAME = 'tf18.kbia.fm'
+AWS_ACCESS_KEY_ID = os.getenv('KBIA_BAKERIES_AWS_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('KBIA_BAKERIES_AWS_KEY')
