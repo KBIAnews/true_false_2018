@@ -1,0 +1,33 @@
+
+
+{% extends 'films/base.html' %}
+
+{% block title %}Dive into True/False 2017{% endblock %}
+
+{% block metablock %}
+    <meta property="og:title" content="Dive into True/False 2017 - KBIA">
+    <meta property="og:image" content="http://truefalse.kbia.fm/static/img/ogimg.jpg"/>
+    <meta property="og:site_name" content="KBIA">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@kbia">
+    <meta name="twitter:title" content="Dive into True/False 2017 - KBIA">
+    <meta name="twitter:image:src" content="http://truefalse.kbia.fm/static/img/ogimg.jpg">
+{% endblock %}
+
+{% block content %}
+<h1 class="site-title">Dive Into True/False 2017</h1>
+    <p class="site-description">
+    This year, KBIA encourages you to take a deep look at some of the films from the True/False Film Fest with the help of our filmmaker conversations and more. When you're done, keep the festival going all year with the new
+        <a href="https://itunes.apple.com/us/podcast/the-true-false-podcast/id1206949858?mt=2">True/False Podcast</a>.
+    </p>
+    <div class="film-thumb-list clearfix">
+{% for film in object_list %}
+    <div class="film-thumb" href="{{ film.get_absolute_url }}">
+        <a href="{{ film.get_absolute_url }}">
+            <img src="{{ film.image.url }}" alt="{{ film.title }} Poster" class="film-thumb-img">
+            <h1 class="film-thumb-title">{{ film.title }}</h1>
+        </a>
+    </div>
+{%  endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,159 @@
+$gradient-transition-point: 60%;
+
+$leader-image-bg-height: 450px;
+
+$leader-image-bg-sm-height: 350px;
+
+div.leader-image-background{
+  margin-top: 0.5rem;
+  width:100%;
+  height: $leader-image-bg-height;
+  display: block;
+  background-size: contain;
+
+  background-repeat: no-repeat;
+
+  h1,h2,h3,p,span{
+    position: relative;
+    z-index: 10;
+  }
+
+}
+
+div.leader-image-back-gradient{
+  z-index: 0;
+  width: 100%;
+  height: $leader-image-bg-height;
+  position: absolute;
+  opacity: 1;
+
+  background: radial-gradient(ellipse at top left, rgba(41,43,44,0.2) 0%,rgba(41,43,44,.6) 30%, rgba(41,43,44,1) 70%);
+  //background: -moz-linear-gradient(top,  rgba(41,43,44,0) 0%, rgba(41,43,44,1) $gradient-transition-point);
+  //background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(41,43,44,0)), color-stop($gradient-transition-point,rgba(41,43,44,1)));
+  //background: -webkit-linear-gradient(top,  rgba(41,43,44,0) 0%,rgba(41,43,44,1) $gradient-transition-point);
+  //background: -o-linear-gradient(top,  rgba(41,43,44,0) 0%,rgba(41,43,44,1) $gradient-transition-point);
+  //background: -ms-linear-gradient(top,  rgba(41,43,44,0) 0%,rgba(41,43,44,1) $gradient-transition-point);
+  //background: linear-gradient(to bottom right,  rgba(41,43,44,0) 0%,rgba(41,43,44,0.8) 40%, rgba(41,43,44,1) $gradient-transition-point);
+}
+
+h1.film-title{
+  padding-top: $leader-image-bg-height/2;
+  text-align: right;
+  color: $gray-lighter;
+  font-size: 3rem;
+  font-weight: lighter;
+}
+
+
+
+h2.film-director{
+  text-align: right;
+  color: darken($gray-lighter, 20%);
+  font-size: 1.5rem;
+}
+
+p.film-description{
+  padding-top: 1em;
+  color: darken($gray-lighter, 10%);
+  text-align: justify;
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, md)){
+  h1.film-title{
+    padding-top: 150px;
+    font-size: 2rem;
+  }
+
+  h2.film-director{
+    font-size: 1.2rem;
+  }
+
+  div.leader-image-background{
+    height: $leader-image-bg-sm-height;
+  }
+
+  div.leader-image-back-gradient {
+    height: $leader-image-bg-sm-height;
+  }
+
+  h1.film-title{
+    padding-top: 5rem;
+  }
+}
+
+div.film-conversation{
+  h2{
+    font-size: 2rem;
+    color: darken($gray-lighter, 5%);
+  }
+
+  h3{
+    font-size: 1.2rem;
+    color: darken($gray-lighter, 20%);
+  }
+
+  p{
+    color: darken($gray-lighter, 20%);
+  }
+}
+
+div.subsection{
+  margin-bottom: 3rem;
+
+  h2{
+    font-size: 2rem;
+    color: darken($gray-lighter, 5%);
+  }
+
+  h3{
+    font-size: 1.2rem;
+    color: darken($gray-lighter, 20%);
+  }
+
+  p{
+    color: darken($gray-lighter, 20%);
+  }
+}
+
+
+a.back-link{
+  color: darken($gray-lighter, 30%);
+  font-weight: lighter;
+  margin-bottom: 1rem;
+}
+
+div.screening-gallery{
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+
+  div.screening-block{
+    border: 1px solid darken($gray-lighter, 60%);
+    width: 250px;
+    height: 5.2rem;
+    text-align: center;
+
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+
+    float: left;
+
+    span.screening-liner{
+      padding-left: 1rem;
+      padding-right: 1rem;
+      display:block;
+      color: darken($gray-lighter, 20%);
+    }
+
+    span.screening-date{
+      background-color: lighten($gray-dark, 20%);
+      color: darken($gray-lighter, 5%);
+    }
+  }
+}
+
+h1.venue-name{
+  font-weight: lighter;
+  margin-top: 1.5rem;
+}

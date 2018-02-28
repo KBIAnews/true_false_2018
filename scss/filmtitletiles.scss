@@ -1,0 +1,66 @@
+$thumb-big-color: darken($gray-lighter, 20%);
+$thumb-width: 400px;
+
+div.container h1.site-title{
+  margin-left: 0rem;
+  font-size: 4rem;
+  font-weight: lighter;
+}
+
+div.container p.site-description{
+  margin-left: 0rem;
+  font-size: 1.2rem;
+  color: $thumb-big-color;
+}
+
+.film-thumb{
+  margin: 5px;
+  float: left;
+  width: $thumb-width;
+  height: $thumb-width/1.5;
+
+  border: solid 1px $thumb-big-color;
+
+
+  a{
+    color: $thumb-big-color;
+
+    img.film-thumb-img{
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-top: 1rem;
+      max-width: 100%;
+    }
+
+    h1.film-thumb-title{
+      color: $thumb-big-color;
+      text-align: center;
+      margin-top: 1.3rem;
+      margin-bottom: 0rem;
+      font-size: 1.3rem;
+    }
+  }
+
+  a:hover h1.film-thumb-title{
+    text-decoration: none !important;
+  }
+
+  a:hover{
+    text-decoration: none !important;
+  }
+
+  &:hover{
+    border: solid 1px lighten($thumb-big-color, 10%);
+  }
+}
+
+@media screen and (max-width: 815px) {
+  .film-thumb{
+    width: 100%;
+    height: auto;
+
+    h1.film-thumb-title{
+      padding-bottom: 1rem;
+    }
+  }
+}

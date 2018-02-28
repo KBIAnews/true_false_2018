@@ -1,0 +1,7 @@
+*.pyc
+
+build/
+
+.idea/
+
+node_modules

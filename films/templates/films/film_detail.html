@@ -1,0 +1,83 @@
+{% extends 'films/base.html' %}
+
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block metablock %}
+    <meta property="og:title" content="{{ object.title }} - True/False - KBIA">
+    <meta property="og:image" content="http://truefalse.kbia.fm{{ object.image.url }}"/>
+    <meta property="og:site_name" content="KBIA">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@kbia">
+    <meta name="twitter:title" content="{{ object.title }} - True/False - KBIA">
+    <meta name="twitter:image:src" content="http://truefalse.kbia.fm{{ object.image.url }}">
+{% endblock %}
+
+{% block content %}
+{#        <div class="leader-image-contain">#}
+{#            <div class="leader-image-contents">#}
+{#                <img class="leader-image-img" src="{{ object.image.url }}" alt="{{ object.title }}">#}
+{#            </div>#}
+{#            <div class="leader-image-gradient">#}
+{##}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#    <div class="float-above-leader">#}
+{#            <h1>{{ object.title }}</h1>#}
+{#    </div>#}
+    <a href="/" class="back-link"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> BACK TO ALL FILMS</a>
+    <br>
+    <div class="leader-image-background" style="background-image: url({{ object.image.url }});">
+
+        <div class="leader-image-back-gradient"></div>
+        <h1 class="film-title">{{ object.title }}</h1>
+        <h2 class="film-director">Directed by {{ object.director }}</h2>
+        <p class="film-description">
+            {{ object.description }}
+        </p>
+    </div>
+        {%  if screenings_list %}
+            <div class="film-screenings subsection">
+                <h2>Film Screenings</h2>
+            <div class="screening-gallery clearfix">
+            {% for screening in screenings_list %}
+                <div class="screening-block">
+                    <span class="screening-liner screening-date">{{ screening.screening_time|date:"l (F j)" }}</span>
+                    <span class="screening-liner screening-time">{{ screening.screening_time|date:"P" }}</span>
+                    <span class="screening-liner screening-location"><a href="{{ screening.venue.get_absolute_url }}">{{ screening.venue.name }}</a></span>
+                </div>
+            {% endfor %}
+            </div>
+            </div>
+        {% endif %}
+        {% if object.convo_author %}
+        <div class="film-conversation subsection">
+            <h2>A Conversation about <em>{{ object.title }}</em></h2>
+            <h3>{{ object.convo_with }} Interviewed by KBIA's {{ object.convo_author }}</h3>
+            <audio controls preload="metadata" style="
+                                                    width:100%;
+                                                    padding-left: 1rem;
+                                                    padding-right: 1rem;
+                                                    padding-bottom: 1rem;
+                                                    padding-top: 2.5rem;"
+              src="{{ object.convo_audio }}"
+              >
+              Your browser does not support the <code>audio</code> element.
+            </audio>
+            <div class="convo-text">
+                {{ object.convo_text | linebreaks }}
+            </div>
+        </div>
+        {% endif %}
+
+    {% if object.trailer_embed %}
+        <div class="film-trailer subsection">
+            <h2>Watch a Preview</h2>
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe src="{{ object.trailer_embed }}" frameborder="0" class="embed-responsive-item"></iframe>
+            </div>
+        </div>
+        {% endif %}
+
+
+{% endblock %}
